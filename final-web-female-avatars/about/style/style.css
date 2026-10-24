@@ -1,0 +1,156 @@
+
+.nav-menu a {
+  display: flex;
+  flex-direction: column;   /* Конверт зверху, кнопка ABOUT під ним */
+  align-items: center;      /* Центрує конверт і слово ABOUT між собою */
+  justify-content: center;  /* Центрує по горизонталі */
+  
+  width: 100%;              /* Займає всю ширину сторінки */
+  margin: 20px auto 40px auto; /* Автоматичні відступи з боків центрують блок на екрані */
+  float: none; 
+ }
+
+  .envelope-img {
+    width: 100px; 
+    height: auto;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .envelope-img:hover {
+  transform: scale(1.1);
+  }
+  
+
+ 
+  @font-face {
+    font-family: 'NAMU'; /* Назва шрифту, яку ви вигадуєте самі */
+    src: url('font/NAMU-1960.woff2') format('woff2'),
+         url('font/NAMU-1960.ttf') format('truetype'); /* Шлях до файлу шрифту */
+    font-weight: normal; /* Товщина шрифту: normal, bold, 400, 700 тощо */
+    font-style: normal;  /* Стиль: normal або italic */
+  }
+  
+  @font-face {
+    font-family: 'CompBold'; /* Назва шрифту, яку ви вигадуєте самі */
+    src: url('font/Compagnon-Bold.woff2') format('woff2'),
+         url('font/Compagnon-Bold.ttf') format('truetype'); /* Шлях до файлу шрифту */
+    font-weight: normal; /* Товщина шрифту: normal, bold, 400, 700 тощо */
+    font-style: normal;  /* Стиль: normal або italic */
+  }
+  
+  @font-face {
+    font-family: 'CompLight'; /* Назва шрифту, яку ви вигадуєте самі */
+    src: url('font/Compagnon-Light.woff2') format('woff2'),
+         url('font/Compagnon-Light.ttf') format('truetype'); /* Шлях до файлу шрифту */
+    font-weight: normal; /* Товщина шрифту: normal, bold, 400, 700 тощо */
+    font-style: normal;  /* Стиль: normal або italic */
+  }
+  
+  .content-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  h1, h2 {
+    font-family: 'NAMU', sans-serif;
+    margin-left: 2%;
+    font-size: 40px;
+    color: rgb(0, 254, 17);
+  }
+  
+
+  p {
+    font-family: 'CompLight', serif;
+    margin-left: 2%;
+    font-size: 18px;
+
+    p1{
+      font-size: 25px;
+      font-family:'CompBold';
+      color: rgb(250, 191, 243);
+    }
+    p2{
+      font-size: 25px;
+      font-family:'CompBold';
+      color: rgb(234, 20, 20);
+    }
+  }
+
+  h3 { 
+    font-family: 'NAMU', sans-serif;
+    margin: 2%;
+    font-size: 10px;
+  }
+
+ html, body {
+  margin: 0%;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden; /* Запобігає загальному скролу всієї сторінки */
+  background-color: #858383; /* Чорний фон, як на відео */
+  color: /*#a82020*/whitesmoke;            /* Червоно-коричневий колір тексту */
+  font-family: sans-serif;
+
+}
+
+
+
+/* 2. Контейнер, який ділить екрану на 2 частини */
+.split-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh; 
+  
+}
+
+/* 3. Спільні стилі для обох колонок */
+.left-column,
+.right-column {
+  flex: 1;                 /*Обидві колонки займають рівно по 50% ширини */
+  height: 100%;            /* Повна висота */
+  overflow-y: auto;        /* Дозволяє СКРОЛИТИ кожну колонку окремо */
+  padding: 40px;
+  box-sizing: border-box;  /* Враховує padding у загальну ширину */
+}
+
+/* 4. Опціонально: розділювальна лінія між колонками */
+.left-column {
+  border-right: 1px solid #ffffff;
+}
+
+/* 5. Стилі заголовків та тексту */
+.project-title {
+  font-size: 34px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 18px;
+  opacity: 0.7;
+  margin-bottom: 30px;
+  font-family: 'CompBold';
+
+}
+
+.project-text {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  padding-bottom: 100px;
+}
+
+a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+a:hover {
+  transform: scale(1.1);
+  color: rgb(248, 49, 225);
+  text-decoration: none;
+  }

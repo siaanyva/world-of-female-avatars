@@ -1,0 +1,196 @@
+body {
+  background-color:  #858383;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family:'NAMU';
+}
+
+
+
+@font-face {
+  font-family: 'NAMU'; /* Назва шрифту, яку ви вигадуєте самі */
+  src: url('font/NAMU-1960.woff2') format('woff2'),
+       url('font/NAMU-1960.ttf') format('truetype'); /* Шлях до файлу шрифту */
+  font-weight: normal; /* Товщина шрифту: normal, bold, 400, 700 тощо */
+  font-style: normal;  /* Стиль: normal або italic */
+}
+
+@font-face {
+  font-family: 'CompBold'; /* Назва шрифту, яку ви вигадуєте самі */
+  src: url('font/Compagnon-Bold.woff2') format('woff2'),
+       url('font/Compagnon-Bold.ttf') format('truetype'); /* Шлях до файлу шрифту */
+  font-weight: normal; /* Товщина шрифту: normal, bold, 400, 700 тощо */
+  font-style: normal;  /* Стиль: normal або italic */
+}
+
+@font-face {
+  font-family: 'CompLight'; /* Назва шрифту, яку ви вигадуєте самі */
+  src: url('font/Compagnon-Light.woff2') format('woff2'),
+       url('font/Compagnon-Light.ttf') format('truetype'); /* Шлях до файлу шрифту */
+  font-weight: normal; /* Товщина шрифту: normal, bold, 400, 700 тощо */
+  font-style: normal;  /* Стиль: normal або italic */
+}
+
+@font-face {
+  font-family: 'CompLightItalic'; /* Назва шрифту, яку ви вигадуєте самі */
+  src: url('font/Compagnon-Italic.woff2') format('woff2'),
+       url('font/Compagnon-LightItalic.ttf') format('truetype'); /* Шлях до файлу шрифту */
+  font-weight: normal; /* Товщина шрифту: normal, bold, 400, 700 тощо */
+  font-style: normal;  /* Стиль: normal або italic */
+}
+
+
+.nav-menu a {
+  text-decoration: none;
+  color: #000000;
+  /* Приберіть звідси display: flex; взагалі */
+  margin-right: 2%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  font-size: 25px;
+}
+
+.nav-menu a.about-link:hover {
+  text-decoration: none;
+  color: #858383;
+}
+
+.nav-menu a.about-link {
+  text-decoration: none;
+  color: #fdfdfd;
+  font-size: 25px;
+  margin: 0;                /* Прибираємо зайві марджіни, щоб не збивали центр */
+}
+  
+/* 1. Навігаційне меню у правому верхньому кутку */
+.nav-menu {
+  display: flex;
+  flex-direction: column;   /* Конверт зверху, кнопка ABOUT під ним */
+  align-items: center;      /* Центрує конверт і слово ABOUT між собою */
+  justify-content: center;  /* Центрує по горизонталі */
+  
+  width: 100%;              /* Займає всю ширину сторінки */
+  margin: 20px auto 40px auto; /* Автоматичні відступи з боків центрують блок на екрані */
+  float: none; 
+}
+
+/* 2. Контейнер конверта */
+.corner-envelope {
+  position: relative;
+  display: flex;            /* Вмикаємо flex замість inline-block */
+  justify-content: center;  /* Центрує картинку конверта */
+  margin-bottom: 8px;       /* Відступ від конверта до слова ABOUT */
+}
+
+/* 3. Картинка конверта */
+.envelope-img {
+  width: 100px;              /* Ваша ширина з коду */
+  height: auto;
+  display: block;
+}
+
+/* 4. Синя плашка-підказка */
+.envelope-text {
+  display: none;
+  position: absolute;       /* Важливо: виймає плашку з основного потоку */
+  
+  /* Позиціонування ЛІВОРУЧ від конверта та по його центру */
+  right: 100%;              /* Показувати плашку зліва від конверта */
+  top: 50%;
+  transform: translateY(-50%); /* Вирівнює точно по висоті конверта */
+  margin-right: 12px;       /* Відступ між плашкою та конвертом */
+  
+  /* Компактний розмір плашки */
+  width: max-content;       /* Ширина підганяється точно під текст */
+  white-space: nowrap;      /* Текст в один рядок */
+  
+  /* Оформлення */
+  background-color:#858383;/* Ваш синій колір */
+  color: rgb(252, 252, 252);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: 'NAMU';
+  font-size: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+/* 5. Показувати плашку при наведенні миші на конверт */
+.corner-envelope:hover .envelope-text {
+  display: block;
+}
+
+
+
+
+
+
+/* 1. Робимо сітку на 5 колонок */
+.envelopes-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+  margin-bottom: 250px;
+}
+
+/* 1. Контейнер кожної картки (зображення + підказка) */
+.tooltip-container {
+  position: relative;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;    
+  width: 100%;
+
+}
+
+/* 2. Картинка конверта */
+.non-envelope-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+}
+
+/* 3. Підказка з текстом (прихована за замовчуванням) */
+.tooltip-text {
+  display: none;
+  position: absolute;
+  
+  /* Відповідає за розміщення під картинкою */
+  top: 100%;              /* Розміщує блок строго ПІД нижнім краєм картинки */
+  left: 0;                /* Вирівнює по лівому краю картинки */
+  margin-top: 8px;        /* Невеликий відступ від картинки */
+
+
+  /* Параметри блоку та форматування */
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: #858383;
+  /*border: 1px solid #cccccc;*/
+  box-shadow: 0px 4px 12px #858383;
+  z-index: 100;           /* Щоб текст перекривав інші елементи знизу і не ховався під ними */
+  
+  /* Стилі шрифту */
+  font-family: 'CompLight', serif;
+  font-size: 12px;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+/* 4. Відображення підказки при наведенні миші на конкретний конверт */
+.tooltip-container:hover .tooltip-text {
+  display: block;
+  width: 100%;
+  height: 110%;
+}
+
+
+
+
